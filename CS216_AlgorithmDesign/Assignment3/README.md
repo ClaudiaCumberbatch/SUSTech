@@ -1,6 +1,2 @@
-# Assignment2
-In this assignment, you are required to pick your favorite reduction from the following examples and write the proof in details.
-1. 3-SAT ≤ p Directed-Hamiltonian-Cycle
-2. 3-SAT ≤ p 3D-Matching
-3. 3-SAT ≤ p 3-Color
-4. 3-SAT ≤ p Subset-Sum
+# Assignment3
+In this assignment, you are asked to write a report to describe your favorite FFT applications. The goal of this assignment is to learn practical algorithms by yourself, systemize the learned knowledge, and explain it in a clear way.
