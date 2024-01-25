@@ -1,0 +1,26 @@
+Building file list...
+8792 positive files and 8960 negative files found.
+
+Converting images to BGR color space and extracting HOG features from channel(s) 0, 1, 2.
+
+Features extracted from 17752 files in 9.7 seconds
+
+Instantiate scaler and scale features.
+
+Shuffling samples into training, cross-validation, and test sets.
+
+Loading sample data.
+Training Phase.
+
+Validation Phase.
+
+Validation Accuracy:  0.959718309859155
+Validation Precision:  0.9749715585893061
+Validation Recall:  0.9453943739658025
+Validation F-1 Score:  0.9599551946233548
+Testing Phase.
+
+Testing Accuracy:  0.9650900900900901
+Testing Precision:  0.9818181818181818
+Testing Recall:  0.9494505494505494
+Testing F-1 Score:  0.96536312849162

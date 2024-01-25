@@ -1,0 +1,79 @@
+{
+	"email":"olivetop@sustech.edu.cn",
+	"link":"https://faculty.sustech.edu.cn/olivetop/",
+	"name":"Oliveto, Pietro Simone",
+	"room":"Office 113, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"glchen@ustc.edu.cn",
+	"link":"Haven't uploaded",
+	"name":"Chen, Guoliang",
+	"room":"Office 139 , South Tower, CoE Building",
+	"title":"Distinguished Visiting Professor"
+}{
+	"email":"zhangjg@sustech.edu.cn",
+	"link":"http://faculty.sustech.edu.cn/zhangjg/",
+	"name":"ZHANG, Jianguo",
+	"room":"Office 313, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"liuj@sustech.edu.cn",
+	"link":"http://cse.sustech.edu.cn/faculty/~liuj",
+	"name":"LIU, Jiang",
+	"room":"Office 409, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"xiny@sustech.edu.cn",
+	"link":"http://cse.sustech.edu.cn/faculty/~xiny",
+	"name":"YAO, Xin",
+	"room":"Office 410, South Tower, CoE Building",
+	"title":"Chair Professor, Department Head"
+}{
+	"email":"haoq@sustech.edu.cn",
+	"link":"http://cse.sustech.edu.cn/faculty/~haoq",
+	"name":"HAO, Qi",
+	"room":"Office 415, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"georgios@sustech.edu.cn",
+	"link":"http://cse.sustech.edu.cn/faculty/~georgios",
+	"name":"THEODOROPOULOS, Georgios",
+	"room":"Office 518, South Tower, CoE Building",
+	"title":"Chair Professor"
+}{
+	"email":"shiyh@sustech.edu.cn",
+	"link":"http://faculty.sustech.edu.cn/shiyh/",
+	"name":"SHI, Yuhui",
+	"room":"Office 521, South Tower, CoE Building",
+	"title":"Chair Professor"
+}{
+	"email":"zhangyq3@sustech.edu.cn",
+	"link":"https://www.sustech.edu.cn/zh/zhangyinqian.html",
+	"name":"ZHANG, Yinqian",
+	"room":"Office 615, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"tangk3@sustech.edu.cn",
+	"link":" https://faculty.sustech.edu.cn/tangk3/",
+	"name":"TANG, Ke",
+	"room":"Office 616, South Tower, CoE Building",
+	"title":"Professor"
+}{
+	"email":"hisao@sustech.edu.cn",
+	"link":"http://cse.sustech.edu.cn/faculty/~hisao",
+	"name":"ISHIBUCHI, Hisao",
+	"room":"Office 617, South Tower, CoE Building",
+	"title":"Chair Professor"
+}{
+	"email":"yangsh@sustech.edu.cn",
+	"link":"http://faculty.sustech.edu.cn/yangsh/",
+	"name":"YANG, Shuanghua",
+	"room":"Office 618, South Tower, CoE Building",
+	"title":"Chair Professor"
+}{
+	"email":"joseph.sifakis@univ-grenoble-alpes.fr",
+	"link":"http://www-verimag.imag.fr/~sifakis/",
+	"name":"Joseph, SIFAKIS",
+	"room":"South Tower, CoE Building",
+	"title":"Distinguished Visiting Professor"
+}

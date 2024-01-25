@@ -1,0 +1,270 @@
+<!DOCTYPE html><html><head>
+      <title>LAB9 tutorial for Machine Learning</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="lab9-tutorial-for-machine-learning">LAB9 tutorial for Machine Learning </h1>
+<h1 id="object-detection-and-tracking">Object Detection and Tracking </h1>
+<blockquote>
+<p>The document description are designed by JIa Yanhong in 2022. Nov. 6th</p>
+</blockquote>
+<h2 id="objective">Objective </h2>
+<ul>
+<li>Understanding Object Detection</li>
+<li>Use YOLOv5 for object detection on various images and videos</li>
+<li>Use YOLOv5+DeepSort for object detection and tracking</li>
+<li>Prepare the opening presentation of final project.</li>
+</ul>
+<h2 id="preface">Preface </h2>
+<p>There are a lot many interesting problems in the Image domain.<br>
+<img src="images/1J1qpG6TUYsq43whAqezjyg.png" alt="img " style="zoom:50%;"></p>
+<p>In this lab, we focus on Object Detection.</p>
+<p>Object Detection is a Computer Vision task to detect and localize objects in images and video,   it is one of the fundamental problems of computer vision.<br>
+<img src="images/1OHlBv6CJfJen_18EFWWNmQ.gif" alt="img " style="zoom:150%;"></p>
+<p>Object Detection is used almost everywhere these days. The use cases are endless, be it Tracking objects, Video surveillance, Pedestrian detection, Anomaly detection, People Counting, Self-driving cars or Face detection, the list goes on.</p>
+<p>State-of-the-art object detection methods can be categorized into two main types: One-stage vs. two-stage object detectors.</p>
+<ul>
+<li>
+<p>The two-stage detectors involves:</p>
+<p>(1) Object region proposal with conventional Computer Vision methods or deep networks, followed by</p>
+<p>(2) Object classification based on features extracted from the proposed region with bounding-box regression.</p>
+</li>
+<li>
+<p>One-stage detectors</p>
+<p>One-stage detectors predict bounding boxes over the images without the region proposal step. This process consumes less time and can therefore be used in real-time applications.</p>
+</li>
+</ul>
+<p>After 2014 – Two-stage object algorithms</p>
+<ul>
+<li>RCNN and SPPNet (2014)</li>
+<li>Fast RCNN and Faster RCNN (2015)</li>
+<li>Mask R-CNN (2017)</li>
+<li>Pyramid Networks/FPN (2017)</li>
+<li>G-RCNN (2021)</li>
+</ul>
+<p>Most important one-stage object detection algorithms</p>
+<ul>
+<li>YOLO (2016)</li>
+<li>SSD (2016)</li>
+<li>RetinaNet (2017)</li>
+<li>YOLOv3 (2018)</li>
+<li>YOLOv4 (2020)</li>
+<li>YOLOv5 (2020)</li>
+<li>YOLOR (2021)</li>
+<li>YOLOv7 (2022)</li>
+</ul>
+<img src="images/machine-learning-infographic.png" alt="Object detection stages " style="zoom:30%;">
+<p>Two-stage methods achieve the highest detection accuracy but are typically slower. Because of the many inference steps per image, the performance (frames per second) is not as good as one-stage detectors.</p>
+<p>One - step detector is used more often in real - time object detection in engineering applications.</p>
+<p>In this lab, we will go through the tutorial of YOLOv5 for object detection.</p>
+<p>We will understand what is YOLOv5 and show you how to use YOLOv5 for object detection on various images and videos.</p>
+<p><em>(But please note that the inclusion of YOLOv5 in the YOLO family is a matter of debate in the community, and neither its paper has been released officially for peer review. So its architectural and performance details mentioned here, as collected from the various sources have to be taken with a pinch of salt.)</em></p>
+<h2 id="yolov5-real-time-object-detection"><strong>YOLOv5: Real-Time Object Detection</strong> </h2>
+<h3 id="history-and-controversy"><strong>History and Controversy</strong> </h3>
+<p>YOLO stands for You Look Only Once and it is one of the finest family of object detection models with state-of-the-art performances.</p>
+<img src="images/yologo_1-166770306879111.png" alt="img " style="zoom:30%;">
+<p>Its first model was released in 2016 by <big>Joseph Redmon</big> who went on to publish  <big>YOLOv2 (2017) and YOLOv3 (2018)</big>. In 2020 Joseph Redmon stepped out from the project citing ethical issues in the computer vision field and his work was further improved by  <big>Alexey Bochkovskiy</big> who produced YOLOv4 in 2020.</p>
+<p>YOLOv5 is the next controversial member of the YOLO family released in 2020 by the company <big>Ultranytics</big> just a few days after YOLOv4.</p>
+<h3 id="where-is-yolov5-paper"><strong>Where is YOLOv5 Paper?</strong> </h3>
+<p>YOLOv5 is controversial due to the fact that no paper has been published yet (till the time of writing this) by its author Glenn Jocher for the community to peer review its benchmark. Neither it is seen to have implemented any novel techniques to claim itself as the next version of YOLO. Instead, it is considered as the PyTorch extension of YOLOv3 and a marketing strategy by Ultranytics to ride on the popularity of the YOLO family of object detection models.</p>
+<p>But one should note that when YOLOv3 was created, Glenn Jocher (creator of YOLOv5) contributed to it by providing the implementation of mosaic data augmentation and genetic algorithm.</p>
+<h3 id="is-yolov5-good-or-bad"><strong>Is YOLOv5 Good or Bad?</strong> </h3>
+<p>Certainly, the controversy behind YOLOv5 is just due to its choice of name, but it does not take away the fact that this is after all a great YOLO object detection model ported on PyTorch.</p>
+<p>Probably if you are just a developer, you would not even care about the controversy and may enjoy working with YOLOv5 due to its ease of use. (As we will see in the examples of this tutorial)</p>
+<h3 id="yolov5-architecture"><strong>YOLOv5 Architecture</strong> </h3>
+<img src="images/ngcb1.webp" alt="YOLOv5 Architecture " style="zoom:100%;">
+<p>(<a href="https://www.researchgate.net/publication/349299852_A_Forest_Fire_Detection_System_Based_on_Ensemble_Learning">A Forest Fire Detection System Based on Ensemble Learning</a>)</p>
+<p>The YOLO family of models consists of three main architectural blocks i) Backbone, ii) Neck and iii) Head.</p>
+<ol>
+<li><strong>YOLOv5 Backbone:</strong> It employs CSPDarknet as the backbone for feature extraction from images consisting of cross-stage partial networks.</li>
+<li><strong>YOLOv5 Neck:</strong> It uses PANet to generate a feature pyramids network to perform aggregation on the features and pass it to Head for prediction.</li>
+<li><strong>YOLOv5 Head:</strong> Layers that generate predictions from the anchor boxes for object detection.</li>
+</ol>
+<p>Apart from this YOLOv5 uses the below choices for training –</p>
+<ol>
+<li><strong>Activation and Optimization:</strong> YOLOv5 uses leaky ReLU and sigmoid activation, and SGD and ADAM as optimizer options.</li>
+<li><strong>Loss Function:</strong> It uses Binary cross-entropy with logits loss.</li>
+</ol>
+<h3 id="different-types-of-yolov5"><strong>Different Types of YOLOv5</strong> </h3>
+<p><img src="images/ngcb1-166772737032337.webp" alt="What is YOLOv5"><br>
+<a href="https://pytorch.org/hub/ultralytics_yolov5/">YOLOv5 Model Comparison</a></p>
+<p>YOLOv5 has multiple varieties of pre-trained models as we can see above. The difference between them is the trade-off between the size of the model and inference time. The lightweight model version YOLOv5s is just 14MB but not very accurate. On the other side of the spectrum, we have YOLOv5x whose size is 168MB but is the most accurate version of its family.</p>
+<img src="images/ngcb1-166772745676840.png" style="zoom:75%;">
+<h2 id="yolov5-tutorial-for-object-detection">YOLOv5 Tutorial for Object Detection </h2>
+<p>In this section, we will see hands-on examples of using YOLOv5 for object detection of both images and videos.</p>
+<h3 id="cloning-the-yolov5-repository">Cloning the YOLOv5 Repository </h3>
+<p>Clone the YOLOv5 repository made and maintained by Ultralytics.</p>
+<p>YOLOv5 github: <a href="https://github.com/ultralytics/yolov5.git">https://github.com/ultralytics/yolov5.git</a></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>git clone https://github.com/ultralytics/yolov5.git  # clone
+</code></pre><h3 id="installing-requirements">Installing Requirements </h3>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>cd yolov5
+pip install -r requirements.txt  # install
+</code></pre><h3 id="train-on-custom-data">Train On Custom Data </h3>
+<h3 id="create-dataset">Create Dataset </h3>
+<p>YOLOv5 models must be trained on labelled data in order to learn classes of objects in that data. There are two options for creating your dataset before you start training:</p>
+<h4 id="use-roboflowhttpsroboflowcomrefultralytics-to-label-prepare-and-host-your-custom-data-automatically-in-yolo-format">Use <a href="https://roboflow.com/?ref=ultralytics">Roboflow</a> to label, prepare, and host your custom data automatically in YOLO format </h4>
+<h5 id="collect-images">Collect Images </h5>
+<p>Your model will learn by example. Training on images similar to the ones it will see in the wild is of the utmost importance. Ideally, you will collect a wide variety of images from the same configuration (camera, angle, lighting, etc) as you will ultimately deploy your project.</p>
+<p>If this is not possible, you can start from <a href="https://universe.roboflow.com/?ref=ultralytics">a public dataset</a> to train your initial model and then <a href="https://blog.roboflow.com/computer-vision-active-learning-tips/?ref=ultralytics">sample images from the wild during inference</a> to improve your dataset and model iteratively.</p>
+<h5 id="create-labels">Create Labels </h5>
+<p>Once you have collected images, you will need to annotate the objects of interest to create a ground truth for your model to learn from.</p>
+<p><img src="images/image1.gif" alt="img"></p>
+<p><a href="https://roboflow.com/annotate?ref=ultralytics">Roboflow Annotate</a> is a simple web-based tool for managing and labeling your images with your team and exporting them in <a href="https://roboflow.com/formats/yolov5-pytorch-txt?ref=ultralytics">YOLOv5's annotation format</a>.</p>
+<h5 id="prepare-dataset-for-yolov5">Prepare Dataset for YOLOv5 </h5>
+<h6 id="prepare-export-and-host-your-dataset-with-roboflow">Prepare, Export, and Host Your Dataset with Roboflow </h6>
+<p>Whether you <a href="https://roboflow.com/annotate?ref=ultralytics">label your images with Roboflow</a> or not, you can use it to convert your dataset into YOLO format, create a YOLOv5 YAML configuration file, and host it for importing into your training script.</p>
+<p><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics">Create a free Roboflow account</a> and upload your dataset to a <code>Public</code> workspace, label any unannotated images, then generate and export a version of your dataset in <code>YOLOv5 Pytorch</code> format.</p>
+<p>Note: YOLOv5 does online augmentation during training, so we do not recommend applying any augmentation steps in Roboflow for training with YOLOv5. But we recommend applying the following preprocessing steps:</p>
+<img src="images/Recommended Preprocessing Steps.png" alt="Recommended Preprocessing Steps" style="zoom:100%;">
+<ul>
+<li><strong>Auto-Orient</strong> - to strip EXIF orientation from your images.</li>
+<li><strong>Resize (Stretch)</strong> - to the square input size of your model (640x640 is the YOLOv5 default).</li>
+</ul>
+<p>Generating a version will give you a point in time snapshot of your dataset so you can always go back and compare your future model training runs against it, even if you add more images or change its configuration later.</p>
+<img src="images/Export in YOLOv5 Format.png" alt="Export in YOLOv5 Format" style="zoom:100%;">
+<p>Export in <code>YOLOv5 Pytorch</code> format, then copy the snippet into your training script or notebook to download your dataset.</p>
+<img src="images/Roboflow dataset download snippet.png" alt="Roboflow dataset download snippet" style="zoom:100%;">
+<p>Now continue with <code>Select a Model</code>.</p>
+<h4 id="or-manually-prepare-your-dataset">Or manually prepare your dataset </h4>
+<h5 id="create-datasetyaml">Create dataset.yaml </h5>
+<p><a href="https://www.kaggle.com/ultralytics/coco128">COCO128</a> is an example small tutorial dataset composed of the first 128 images in <a href="http://cocodataset.org/#home">COCO</a> train2017. These same 128 images are used for both training and validation to verify our training pipeline is capable of overfitting. <a href="https://github.com/ultralytics/yolov5/blob/master/data/coco128.yaml">data/coco128.yaml</a>, shown below, is the dataset config file that defines 1) the dataset root directory <code>path</code> and relative paths to <code>train</code> / <code>val</code> / <code>test</code> image directories (or *.txt files with image paths) and 2) a class <code>names</code> dictionary:</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../datasets/coco128  # dataset root dir
+train: images/train2017  # train images (relative to 'path') 128 images
+val: images/train2017  # val images (relative to 'path') 128 images
+test:  # test images (optional)
+
+# Classes (80 COCO classes)
+names:
+  0: person
+  1: bicycle
+  2: car
+  ...
+  77: teddy bear
+  78: hair drier
+  79: toothbrush
+</code></pre><h5 id="create-labels-1">Create Labels </h5>
+<p>After using a tool like <a href="https://roboflow.com/annotate?ref=ultralytics">Roboflow Annotate</a> to label your images, export your labels to <strong>YOLO format</strong>, with one <code>*.txt</code> file per image (if no objects in image, no <code>*.txt</code> file is required). The <code>*.txt</code> file specifications are:</p>
+<ul>
+<li>One row per object</li>
+<li>Each row is <code>class x_center y_center width height</code> format.</li>
+<li>Box coordinates must be in <strong>normalized xywh</strong> format (from 0 - 1). If your boxes are in pixels, divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height.</li>
+<li>Class numbers are zero-indexed (start from 0).</li>
+</ul>
+<img src="images/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" style="zoom:50%;">
+<p>The label file corresponding to the above image contains 2 persons (class <code>0</code>) and a tie (class <code>27</code>):</p>
+<img src="images/112467037-d2568c00-8d66-11eb-8796-55402ac0d62f.png" style="zoom:75%;">
+<h5 id="organize-directories">Organize Directories </h5>
+<p>Organize your train and val images and labels according to the example below. YOLOv5 assumes <code>/coco128</code> is inside a <code>/datasets</code> directory <strong>next to</strong> the <code>/yolov5</code> directory. <strong>YOLOv5 locates labels automatically for each image</strong> by replacing the last instance of <code>/images/</code> in each image path with <code>/labels/</code>. For example:</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>../datasets/coco128/images/im0.jpg  # image
+../datasets/coco128/labels/im0.txt  # label
+</code></pre><img src="images/134436012-65111ad1-9541-4853-81a6-f19a3468b75f.png" style="zoom:50%;">
+<p>Here we download a <a href="https://public.roboflow.com/object-detection/mask-wearing">mask  wearing dataset</a> directly from roboflow's public dataset.</p>
+<p><img src="images/image-20221106182216584.png" style="zoom:75%;"><br></p>
+<p><img src="images/image-20221106172113779.png" style="zoom:60%;"><br></p>
+<p><img src="images/image-20221106182438526.png" style="zoom:60%;"><br></p>
+<p><img src="images/image-20221106182530796.png" style="zoom:60%;"><br></p>
+<p><img src="images/image-20221106182746011.png" alt="image-20221106182746011"></p>
+<h3 id="select-a-model">Select a Model </h3>
+<p>Select a pretrained model to start training from. Here we select <a href="https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml">YOLOv5s</a>, the second-smallest and fastest model available. See our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a> for a full comparison of all models.</p>
+<p><img src="images/ngcb1-166772737032337.webp" alt="YOLOv5 Models"></p>
+<h3 id="train">Train </h3>
+<p>Train a YOLOv5s model on <code>mask  wearing dataset</code> by specifying dataset, batch-size, image size and either pretrained <code>--weights best.pt</code> , or randomly initialized <code>--weights '' --cfg yolov5s.yaml</code> . Pretrained weights are auto-downloaded from the <a href="https://github.com/ultralytics/yolov5/releases">latest YOLOv5 release</a>.</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code># Train YOLOv5s on mask wearing dataset for 3 epochs
+$ python train.py --img 640 --batch 16 --epochs 30 --data D:/yolo/datasets/MaskDataSet/data.yaml --weights '' --cfg yolov5s.yaml
+
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text text"><code>$ python train.py --img 640 --batch 16 --epochs 30 --data D:/yolo/datasets/MaskDataSet/data.yaml --weights runs\train\exp11\weights\best.pt
+</code></pre><p>All training results are saved to <code>runs/train/</code> with incrementing run directories, i.e. <code>runs/train/exp2</code>, <code>runs/train/exp3</code> etc</p>
+<h3 id="visualize-local-logging">Visualize （Local Logging） </h3>
+<p>Training results are automatically logged with <a href="https://www.tensorflow.org/tensorboard">Tensorboard</a> and <a href="https://github.com/ultralytics/yolov5/pull/4148">CSV</a> loggers to <code>runs/train</code>, with a new experiment directory created for each new training as <code>runs/train/exp2</code>, <code>runs/train/exp3</code>, etc.</p>
+<p>This directory contains train and val statistics, mosaics, labels, predictions and augmentated mosaics, as well as metrics and charts including precision-recall (PR) curves and confusion matrices.</p>
+<img src="images/image-local_logging.jpg" style="zoom:75%;">
+<p>Results file <code>results.csv</code> is updated after each epoch, and then plotted as <code>results.png</code> (below) after training completes. You can also plot any <code>results.csv</code> file manually:</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>from utils.plots import plot_results
+plot_results('path/to/results.csv')  # plot 'results.csv' as 'results.png'
+</code></pre><img src="images/results.png" style="zoom:50%;">
+<p>Once your model is trained you can use your best checkpoint <code>best.pt</code> to:</p>
+<ul>
+<li>Run  <a href="https://github.com/ultralytics/yolov5/issues/36">Python</a> inference on new images and videos</li>
+<li><a href="https://github.com/ultralytics/yolov5/blob/master/val.py">Validate</a> accuracy on train, val and test splits</li>
+</ul>
+<h3 id="validation-with-valpy">validation with <a href="http://val.py">val.py</a> </h3>
+<p>Validate a trained YOLOv5 detection model on a detection dataset</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>  $ python val.py --weights runs\train\exp11\weights\best.pt --data D:/yolo/datasets/MaskDataSet/data.yaml --img 640
+</code></pre><h3 id="inference-with-detectpy">Inference with <a href="http://detect.py">detect.py</a> </h3>
+<p>Run YOLOv5 detection inference on images, videos, directories, globs, YouTube, webcam, streams, etc.</p>
+<p><code>detect.py</code> runs inference on a variety of sources, downloading <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> and saving results to <code>runs/detect</code>.</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>$ python detect.py --weights runs\train\exp11\weights\best.pt --source  0                               # webcam
+                                                                        img.jpg                         # image
+                                                                        vid.mp4                         # video
+                                                                        path/                           # directory
+                                                                        'path/*.jpg'                    # glob
+                                                                        'https://youtu.be/Zgi9g1ksQHc'  # YouTube
+                                                                        'rtsp://example.com/media.mp4'  #RTSP, RTMP, HTTP stream
+</code></pre><h2 id="yolov5--deep-sort-tutorial-for-object-detection-and-tracking">Yolov5 + Deep Sort Tutorial for Object Detection and Tracking </h2>
+<h2 id="introduction">Introduction </h2>
+<p>This repository contains a two-stage-tracker. The detections generated by <a href="https://github.com/ultralytics/yolov5">YOLOv5</a>, a family of object detection architectures and models pretrained on the COCO dataset, are passed to a <a href="https://github.com/ZQPei/deep_sort_pytorch">Deep Sort algorithm</a> which tracks the objects. It can track any object that your Yolov5 model was trained to detect.</p>
+<p><img src="images/track_all.gif" alt="track_all"></p>
+<p><img src="images/track_pedestrians.gif" alt="track_pedestrians"></p>
+<h2 id="before-running-the-tracker">Before running the tracker </h2>
+<h3 id="cloning-the-yolov5-deepsort-repository">Cloning the YOLOv5-Deepsort Repository </h3>
+<p>yolov5-deepsort github: <a href="https://github.com/HowieMa/DeepSORT_YOLOv5_Pytorch">https://github.com/HowieMa/DeepSORT_YOLOv5_Pytorch</a></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>git clone https://github.com/HowieMa/DeepSORT_YOLOv5_Pytorch.git  # clone
+</code></pre><p>Make sure that you fulfill all the requirements: Python 3.8 or later with all <a href="https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/blob/master/requirements.txt">requirements.txt</a> dependencies installed, including torch&gt;=1.7. To install, run:</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>pip install -r requirements.txt
+</code></pre><p>Download the yolov5 weight. I already put the <code>yolov5s.pt</code> inside. If you need other models, please go to <a href="https://github.com/ultralytics/yolov5">official site of yolov5</a>. and place the downlaoded <code>.pt</code> file under <code>yolov5/weights/</code>.<br>
+And I also aready downloaded the deepsort weights. You can also download it from <a href="https://drive.google.com/drive/folders/1xhG0kRH1EX5B9_Iz8gQJb7UNnn_riXi6">here</a>, and place <code>ckpt.t7</code> file under <code>deep_sort/deep/checkpoint/</code></p>
+<h2 id="running-tracker">Running tracker </h2>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code># on video file
+python main.py --input_path [VIDEO_FILE_NAME] --display
+
+# on webcam 
+python main.py --cam 0 --display
+</code></pre><h2 id="other-tutorials">Other Tutorials </h2>
+<ul>
+<li><a href="https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data">Yolov5 training on Custom Data (link to external repository)</a>&nbsp;</li>
+<li><a href="https://kaiyangzhou.github.io/deep-person-reid/user_guide.html">DeepSort deep descriptor training (link to external repository)</a>&nbsp;</li>
+<li><a href="https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/wiki/Evaluation">Yolov5 deep_sort pytorch evaluation</a></li>
+<li><a href="https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch">Yolov5_DeepSort_Pytorch</a></li>
+<li><a href="https://github.com/ultralytics/yolov5">yolov5</a></li>
+<li><a href="https://github.com/ZQPei/deep_sort_pytorch">deep_sort_pytorch</a></li>
+<li><a href="https://github.com/nwojke/deep_sort">deep_sort</a></li>
+</ul>
+<h2 id="reference">Reference </h2>
+<p>[1] Joseph Redmon, et al. “You only look once: Unified, real-time object detection.” CVPR 2016.</p>
+<p>[2] Joseph Redmon and Ali Farhadi. “YOLO9000: Better, Faster, Stronger.” CVPR 2017.</p>
+<p>[3] Joseph Redmon, Ali Farhadi. “YOLOv3: An incremental improvement.”.</p>
+<p>[4] Lilian Weng. Object Detection Part 4: Fast Detection Models Dec 27, 2018</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
