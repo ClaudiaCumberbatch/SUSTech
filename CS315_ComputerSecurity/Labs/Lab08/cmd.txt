@@ -1,0 +1,55 @@
+1. mac上的ubuntu22.04
+make -j8 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- bcm2709_defconfig # 为目标平台指定配置文件, 生成一个默认的配置文件（.config）
+make -j8 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- menuconfig
+# 能过，但是要花20min左右，并且电脑发烫。也许可以开多点线程？
+# 把虚拟机从2个核改成能用8个核，活动监视器CPU负载吃到满，电脑发烫，干到9min
+make -j8 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- zImage dtbs modules 
+mkdir ../modulespath
+# 很快，主要是一堆cp和INSTALL命令，有很多No such file or directory
+make -j8 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- modules_install INSTALL_MOD_PATH=../modulespath
+./scripts/mkknlimg ./arch/arm/boot/zImage /media/sicheng/boot/kernel7.img
+cp /media/sicheng/boot/kernel7.img /media/sicheng/boot/kernel.img
+cp ./arch/arm/boot/dts/bcm2710-rpi-3-b-plus.dtb /media/sicheng/boot/ # no such file
+cp ./arch/arm/boot/dts/overlays/*.dtb* /media/sicheng/boot/overlays/
+
+export PATH=$PATH:/usr/bin/arm-linux-gnueabi-gcc
+export PATH=$PATH:/usr/share/doc/gcc-arm-linux-gnueabi
+
+根据教程 https://www.raspberrypi.com/documentation/computers/linux_kernel.html
+用lsblk在插入disk前后打印出磁盘信息，发现多出了：
+sda           8:0    1  59.5G  0 disk 
+├─sda1        8:1    1   256M  0 part /media/sicheng/boot
+└─sda2        8:2    1   7.1G  0 part /media/sicheng/rootfs
+
+
+2. mac
+make -j8 ARCH=arm CROSS_COMPILE=arm-none-eabi- zImage dtbs modules # mac上会出现./scripts/gcc-version.sh: line 26: arm-none-gnueabi-gcc: command not found
+
+
+3. HPCLab03服务器
+make -j8 ARCH=arm CROSS_COMPILE=/home/zhousc/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64\
+/bin/arm-linux-gnueabihf- bcm2709_defconfig
+
+make -j64 ARCH=arm CROSS_COMPILE=/home/zhousc/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64\
+/bin/arm-linux-gnueabihf- zImage dtbs modules
+
+make -j8 ARCH=arm CROSS_COMPILE=/home/zhousc/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64\
+/bin/arm-linux-gnueabihf- modules_install INSTALL_MOD_PATH=../modulespath
+
+./scripts/mkknlimg ./arch/arm/boot/zImage /home/zhousc/download/kernel7.img
+cp /home/zhousc/download/kernel7.img /home/zhousc/download/kernel.img
+cp ./arch/arm/boot/dts/bcm2710-rpi-3-b-plus.dtb /home/zhousc/download/
+cp ./arch/arm/boot/dts/overlays/*.dtb* /home/zhousc/download/overlays/
+
+控制变量法发现换掉kernel7.img之后就boot不了。。
+
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+ 
+network={
+ssid="不是Claudia的iPhone"
+psk="15967834517"
+key_mgmt=WPA-PSK
+priority=1
+}

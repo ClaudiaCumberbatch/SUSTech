@@ -1,0 +1,20 @@
+cd /dev
+ls | grep tty.*
+sudo screen /dev/tty.usbserial-120 115200
+lsof | grep tty.usbserial-120
+
+ssh pi@172.20.10.3
+
+make
+dmesg
+sudo insmod simple_module.ko
+dmesg
+sudo rmmod simple_module
+
+sudo insmod nailgun.ko
+dmesg
+sudo rmmod nailgun
+sudo reboot
+
+配置ssh
+https://blog.csdn.net/qq_41989885/article/details/105821772

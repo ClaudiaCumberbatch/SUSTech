@@ -1,0 +1,17 @@
+./container.sh -v /home/zhousc/computer_security/lab09 run
+
+cd home/zhousc/computer_security/lab09/scripts
+
+export DISPLAY=localhost:10.0
+
+
+// for dtc, according to https://github.com/dgibson/dtc/issues/32
+sudo make NO_PYTHON=1 CC=aarch64-linux-gnu-gcc
+
+sudo make NO_PYTHON=1 CC=aarch64-linux-gnu-gcc CFLAGS=-static -s
+
+sudo rm dtc
+
+sudo make NO_PYTHON=1 CC=aarch64-linux-gnu-gcc CFLAGS=-static -s
+
+sudo make DESTDIR=$SYSROOT PREFIX=/usr LIBDIR=/usr/lib/$TRIPLET install-lib install-includes

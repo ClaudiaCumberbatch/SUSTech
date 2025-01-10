@@ -1,0 +1,73 @@
+Name: 周思呈
+SID: 12110644
+
+0. Notice
+This student is using Macbook Air which is based on ARM64.
+In ARM64, the return address is saved in low address 
+and buffer overflow is towards high address which seems that the attack cannot be performed.
+However, the main() function also has return address which stores in higher address than the buffer.
+So in this assignment, this student actually overflows main()'s return address.
+
+
+1. What happens when you compile without “-z execstack”?
+The stack is marked as non-executable by default.
+
+
+2. What is ASLR? How to enable or disable it?
+ASLR is Address Space Layout Randomization.
+To disable ASLR, run `sudo bash -c 'echo 0 > /proc/sys/kernel/randomize_va_space'`.
+To enable ASLR, run `sudo bash -c 'echo 2 > /proc/sys/kernel/randomize_va_space'`.
+
+
+3. Does the address of the buffer[] in memory change when you run BOF
+using GDB, /home/root/Desktop/Lab2-BufferOverflows/BOF, and ./BOF?
+
+┌──(sicheng㉿kali)-[~/Desktop/Lab02]
+└─$ ./a.out                                                         
+Address of buffer: 0xffffffffe970
+                                                                                                                                   
+┌──(sicheng㉿kali)-[~/Desktop/Lab02]
+└─$ ./a.out
+Address of buffer: 0xffffffffe970
+                                                                                                                                   
+┌──(sicheng㉿kali)-[~/Desktop/Lab02]
+└─$ gdb -q ./a.out 
+GEF for linux ready, type `gef' to start, `gef config' to configure
+93 commands loaded and 5 functions added for GDB 15.1 in 0.00ms using Python engine 3.12
+Reading symbols from ./a.out...
+(No debugging symbols found in ./a.out)
+gef➤  r
+Starting program: /home/sicheng/Desktop/Lab02/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+Address of buffer: 0xffffffffe930
+[Inferior 1 (process 394898) exited normally]
+gef➤  r
+Starting program: /home/sicheng/Desktop/Lab02/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+Address of buffer: 0xffffffffe930
+[Inferior 1 (process 394978) exited normally]
+                                                                                                               
+┌──(sicheng㉿kali)-[~/Desktop/Lab02]
+└─$ /home/sicheng/Desktop/Lab02/a.out 
+Address of buffer: 0xffffffffe940
+                                                                                                                              
+┌──(sicheng㉿kali)-[~/Desktop/Lab02]
+└─$ /home/sicheng/Desktop/Lab02/a.out
+Address of buffer: 0xffffffffe940
+
+
+4. What are the defenses against stack overflow attacks in
+Windows/Linux/Mac OS?
+- Stack Canaries
+Inserts a random value before the return address; if modified, the program aborts.
+OS: Windows, Linux, macOS.
+
+- Data Execution Prevention (DEP) / NX Bit
+Marks certain memory regions (like the stack) as non-executable, preventing execution of injected code.
+OS: Windows, Linux, macOS.
+
+- Address Space Layout Randomization (ASLR)
+Randomizes memory addresses of key areas (stack, heap, libraries), making it difficult for attackers to predict.
+OS: Windows, Linux, macOS.

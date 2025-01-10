@@ -1,0 +1,15 @@
+unzip -d app-debug app-debug.apk
+cd app-debug
+java -jar /Users/claudiacumberbatch/Desktop/CS315_Computer_Security/Labs/Lab05/smali/baksmali/build/libs/baksmali.jar disassemble classes3.dex
+rm classes3.dex 
+java -jar /Users/claudiacumberbatch/Desktop/CS315_Computer_Security/Labs/Lab05/smali/smali/build/libs/smali.jar assemble  out -o classes3.dex
+rm -r out
+rm –r META-INF
+zip -n "resources.arsc" -qr zipped.apk ./*
+keytool -genkey -keystore sicheng.keystore -alias sicheng-key -keyalg RSA -keysize 2048 -validity 10000
+/Users/claudiacumberbatch/Library/Android/sdk/build-tools/35.0.0/apksigner sign --ks sicheng.keystore zipped.apk
+/Users/claudiacumberbatch/Library/Android/sdk/build-tools/35.0.0/zipalign -v 4 zipped.apk zipped-aligned.apk
+adb shell pm list packages | grep lab
+adb uninstall com.example.lab5_2
+// adb install -t zipped-aligned.apk
+adb install -t zipped.apk 

@@ -1,0 +1,4 @@
+gcc -m32 -fno-stack-protector example.c # 关闭StackGuard
+
+gcc -m32 -z execstack -o test test.c    # executable stack
+gcc -m32 -z noexecstack -o test test.c  # non-executable stack

@@ -1,0 +1,19 @@
+@page {
+    margin-top: 20mm;
+    margin-bottom: 20mm;
+    margin-left: 15mm;
+    margin-right: 15mm;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 12pt;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  

@@ -1,0 +1,10 @@
+sudo docker compose build
+sudo docker compose up
+sudo docker ps --format "{{.ID}} {{.Names}}"
+sudo docker exec -it <id> /bin/bash
+
+sudo docker exec -it d6 /bin/bash
+
+nc -lknv 5555
+nano /etc/apache2/sites-available/apache_csp.conf
+service apache2 restart
